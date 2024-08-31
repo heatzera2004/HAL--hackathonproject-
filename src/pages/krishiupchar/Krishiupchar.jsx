@@ -4,7 +4,11 @@ import Layout from '../../components/layout/Layout';
 const KrishiUpchar = () => {
   return (
     <Layout>
+      <header className="bg-green-500 p-4 text-white text-center rounded-md shadow-md">
+        <h1 className="text-3xl font-bold">Krishi Upchar</h1>
+      </header>
       <div className="flex justify-center items-center p-8 bg-green-50 text-green-900 font-sans">
+        
         <div className="w-full max-w-5xl bg-white rounded-2xl shadow-2xl p-10 border border-green-300">
           <h1 className="text-4xl font-extrabold text-green-700 mb-6 text-center">Common Rust of Corn</h1>
 
