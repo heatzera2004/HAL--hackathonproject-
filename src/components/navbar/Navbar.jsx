@@ -47,9 +47,10 @@ const Navbar = () => {
               {/* Logo */}
               <div className="ml-4 flex lg:ml-0">
                 <Link to={'/'} className='flex'>
-                  <div className="flex ">
-                    <h1 className=' text-2xl font-bold text-black  px-2 py-1 rounded' style={{ color: mode === 'dark' ? 'white' : '', }}>E-Seeds</h1>
-                  </div>
+                <div className="flex items-center">
+                  <img className="h-8 md:h-12 lg:h-16" src='https://i.postimg.cc/Vkbn3yjM/Farm-logo-removebg-preview.png' alt='' />
+                  <h1 className='text-3xl font-bold py-1 rounded' style={{ color: mode === 'dark' ? 'white' : 'black' }}>हल</h1>
+                </div>
                 </Link>
               </div>
 
