@@ -19,7 +19,7 @@ const HeroSection = () => {
     // </div>
     <div>
       <SimpleImageSlider
-        width={1510}
+        width={1582}
         height={500}
         images={images}
         showBullets={true}
