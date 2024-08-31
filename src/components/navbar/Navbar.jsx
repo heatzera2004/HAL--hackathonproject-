@@ -26,7 +26,7 @@ const Navbar = () => {
     <div>
       <header className="relative bg-white">
         <p className="flex h-10 items-center justify-center bg-green-600 px-4 text-sm font-medium text-white sm:px-6 lg:px-8" style={{ backgroundColor: mode === 'dark' ? 'rgb(62 64 66)' : '', color: mode === 'dark' ? 'white' : '', }}>
-          Get free delivery on orders over ₹300
+        "Agriculture is our wisest pursuit, because it will in the end contribute most to real wealth, good morals & happiness."
         </p>
 
         <nav aria-label="Top" className="bg-gray-100 px-4 sm:px-6 lg:px-8 shadow-xl " style={{ backgroundColor: mode === 'dark' ? '#282c34' : '', color: mode === 'dark' ? 'white' : '', }}>
@@ -88,14 +88,15 @@ const Navbar = () => {
                     <span className="ml-3 block text-sm font-medium" style={{ color: mode === 'dark' ? 'white' : '', }}>INDIA</span>
                   </a>
                 </div> */}
-                <div className="hidden lg:ml-8 lg:flex">
+                {/* IMAGE ICON PART HERE */}
+                {/* <div className="hidden lg:ml-8 lg:flex">
                   <a href="#" className="flex items-center text-gray-700 ">
                     <img
                       className="inline-block w-10 h-10 rounded-full"
                       src="https://images.pexels.com/photos/170811/pexels-photo-170811.jpeg?auto=compress&cs=tinysrgb&w=1260&h=750&dpr=1"
                       alt="Dan_Abromov" />
                   </a>
-                </div>
+                </div> */}
 
                 {/* Search && LIGHT AND DARKMODE*/}
                 {/* <div className="flex lg:ml-6">

@@ -12,18 +12,6 @@ import { addToCart, deleteFromCart } from '../../redux/cartSlice'
 
 
 function Home() {
-  // const dispatch = useDispatch();
-  // const cartItem = useSelector((state)=> state.cart)
-
-  // console.log(cartItem)
-
-  // const addCart = () => {
-  //   dispatch(addToCart("shirt"));
-  // }
-
-  // const deleteCart = () => {
-  //   dispatch(deleteFromCart("shirt"));
-  // }
   return (
     <Layout>
       <HeroSection />
