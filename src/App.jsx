@@ -13,6 +13,10 @@ import AddProduct from './pages/admin/pages/AddProduct'
 import { ToastContainer, toast } from 'react-toastify';
 import Allproducts from './pages/allproducts/AllProducts'
 import Disease from './pages/disease/Disease'
+import Awareness from './pages/awareness/Awareness'
+import Communityforum from './pages/communityforum/Communityforum'
+import Userdashboard from './pages/userdashboard/Userdashboard'
+import Governmentschemes from './pages/governmentschemes/Governmentschemes'
 import 'react-toastify/dist/ReactToastify.css';
 
 
@@ -51,6 +55,10 @@ function App() {
             </ProtectedRouteForAdmin>
           } />  
           <Route path='/disease'element={<Disease />} />
+          <Route path='/awarness' element={<Awareness />} />
+          <Route path='/communityforum' element={<Communityforum />} />
+          <Route path='/userdashboard' element={<Userdashboard />} />
+          <Route path='/governmentschemes' element={<Governmentschemes /> } />
         </Routes>
         <ToastContainer />
       </Router>
