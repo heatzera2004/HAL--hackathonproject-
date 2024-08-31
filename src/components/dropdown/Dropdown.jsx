@@ -49,6 +49,12 @@ export default function Dropdown() {
               <kbd className="ml-auto hidden font-sans text-xs text-white/50 group-data-[focus]:inline">⌘E</kbd>
             </button>
           </MenuItem>
+          <MenuItem>
+            <button onClick={() => navigate('/krishiupchar')} className="group flex font-semibold	 w-full items-center gap-2 rounded-lg py-1.5 px-3 data-[focus]:bg-white/10">
+              Krishi Upchar
+              <kbd className="ml-auto hidden font-sans text-xs text-white/50 group-data-[focus]:inline">⌘E</kbd>
+            </button>
+          </MenuItem>
         </MenuItems>
       </Menu>
     </div>

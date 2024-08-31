@@ -17,6 +17,7 @@ import Awareness from './pages/awareness/Awareness'
 import Communityforum from './pages/communityforum/Communityforum'
 import Userdashboard from './pages/userdashboard/Userdashboard'
 import Governmentschemes from './pages/governmentschemes/Governmentschemes'
+import Krishiupchar from './pages/krishiupchar/Krishiupchar'
 import 'react-toastify/dist/ReactToastify.css';
 
 
@@ -59,6 +60,7 @@ function App() {
           <Route path='/communityforum' element={<Communityforum />} />
           <Route path='/userdashboard' element={<Userdashboard />} />
           <Route path='/governmentschemes' element={<Governmentschemes /> } />
+          <Route path='/krishiupchar' element={<Krishiupchar />} />
         </Routes>
         <ToastContainer />
       </Router>
