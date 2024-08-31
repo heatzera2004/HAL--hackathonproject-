@@ -39,7 +39,7 @@ export default function Dropdown() {
           {/* <div className="my-1 h-px bg-white/5" /> */}
           <MenuItem>
             <button onClick={() => navigate('/awarness')} className="group flex font-semibold w-full items-center gap-2 rounded-lg py-1.5 px-3 data-[focus]:bg-white/10">
-              Awarness
+              Learn
               <kbd className="ml-auto hidden font-sans text-xs text-white/50 group-data-[focus]:inline">⌘A</kbd>
             </button>
           </MenuItem>

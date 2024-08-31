@@ -58,7 +58,11 @@ function App() {
           <Route path='/disease'element={<Disease />} />
           <Route path='/awarness' element={<Awareness />} />
           <Route path='/communityforum' element={<Communityforum />} />
-          <Route path='/userdashboard' element={<Userdashboard />} />
+          <Route path='/userdashboard' element={
+            <ProtectedRoute>
+              <Userdashboard />
+            </ProtectedRoute>
+          } />
           <Route path='/governmentschemes' element={<Governmentschemes /> } />
           <Route path='/krishiupchar' element={<Krishiupchar />} />
         </Routes>
