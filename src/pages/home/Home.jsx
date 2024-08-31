@@ -9,13 +9,14 @@ import Track from '../../components/track/Track'
 import Testimonial from '../../components/testimonial/Testimonial'
 import { useDispatch, useSelector } from 'react-redux'
 import { addToCart, deleteFromCart } from '../../redux/cartSlice'
+import Feedback from '../../components/feedback/Feedback'
 
 
 function Home() {
   return (
     <Layout>
       <HeroSection />
-      <Filter />
+      {/* <Filter /> */}
       <ProductCard />
       <div className="flex justify-center -mt-10 mb-4">
         <Link to={'/allproducts'}>
@@ -24,6 +25,7 @@ function Home() {
       </div>
       <Track />
       <Testimonial />
+      <Feedback />
 
     </Layout>
   )
