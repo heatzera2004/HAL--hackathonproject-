@@ -13,7 +13,7 @@ const remedies = {
     }
   },
   "potato": {
-    "Late Blight": {
+    "_Late_Blight": {
       "en": "Apply fungicides like Mancozeb and ensure proper drainage. Remove and destroy infected plants. Avoid high humidity and practice crop rotation.",
       "hi": "मैनकोज़ेब जैसे कवकनाशक लगाएं और उचित जल निकासी सुनिश्चित करें। संक्रमित पौधों को हटा दें और नष्ट कर दें। उच्च नमी से बचें और फसल चक्र का पालन करें।",
       "factors": {
@@ -38,7 +38,7 @@ const remedies = {
         "removeInfectedPlants": "Promptly remove and destroy infected plants. Avoid composting; bury or burn them."
       }
     },
-    "Early Blight": {
+    "_Early_Blight": {
       "en": "Manage humidity, use resistant varieties, and apply fungicides. Ensure proper spacing and crop rotation. Regularly inspect plants and remove affected leaves.",
       "hi": "नमी का प्रबंधन करें, प्रतिरोधी किस्मों का उपयोग करें, और कवकनाशक लगाएं। उचित स्पेसिंग और फसल चक्र सुनिश्चित करें। नियमित रूप से पौधों की जांच करें और प्रभावित पत्तियों को हटा दें।",
       "factors": {
@@ -64,7 +64,12 @@ const remedies = {
         "fungicideApplication": "Apply fungicides as a preventive measure during high-risk periods.",
         "spacingAndPruning": "Space plants for good air circulation and prune lower leaves close to the ground."
       }
-    }
+    },
+    "_Healthy": {
+      "en": "Don't worry, your crop is healthy. Keep it up!",
+      "hi": "चिंता मत करें, आपकी फसल स्वस्थ है। ऐसे ही बनाए रखें!"
+
+  }
   },
   "rice": {
     "Leaf Blast": {
@@ -96,12 +101,7 @@ const remedies = {
       "hi": "प्रोपिकोनाजोल जैसे कवकनाशक लगाएं और वायु परिसंचरण में सुधार करें। फसल चक्र का पालन करें और ओवरहेड सिंचाई से बचें।"
     }
   },
-  "healthy": {
-    "potato": {
-      "en": "Don't worry, your crop is healthy. Keep it up!",
-      "hi": "चिंता मत करें, आपकी फसल स्वस्थ है। ऐसे ही बनाए रखें!"
-    }
-  }
+  
 };
 
 const Ai = () => {
@@ -163,9 +163,10 @@ const Ai = () => {
         if (topPrediction) {
           setPrediction(topPrediction);
           // Fetch the remedy based on the disease name and crop type
-          const crop = topPrediction.className.split(' ')[0].toLowerCase(); // Assuming the crop type is part of the class name
-          const disease = topPrediction.className.split(' ').slice(1).join(' '); // Assuming the disease name follows the crop type
-
+          const crop = topPrediction.className.split('__')[0].toLowerCase(); // Assuming the crop type is part of the class name
+          const disease = topPrediction.className.split('__').slice(1).join(' '); // Assuming the disease name follows the crop type
+          console.log(crop)
+          console.log(disease)
           if (remedies[crop] && remedies[crop][disease]) {
             setRemedy(remedies[crop][disease]);
           } else {
@@ -323,4 +324,4 @@ const Ai = () => {
   );
 };
 
-export default Ai;
+export default Ai;
