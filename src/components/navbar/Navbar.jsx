@@ -94,14 +94,14 @@ const Navbar = () => {
                   </a>
                 </div> */}
                 {/* IMAGE ICON PART HERE */}
-                {/* <div className="hidden lg:ml-8 lg:flex">
+                <div className="hidden lg:ml-8 lg:flex">
                   <a href="#" className="flex items-center text-gray-700 ">
                     <img
                       className="inline-block w-10 h-10 rounded-full"
                       src="https://images.pexels.com/photos/170811/pexels-photo-170811.jpeg?auto=compress&cs=tinysrgb&w=1260&h=750&dpr=1"
                       alt="Dan_Abromov" />
                   </a>
-                </div> */}
+                </div>
 
                 {/* Search && LIGHT AND DARKMODE*/}
                 {/* <div className="flex lg:ml-6">
