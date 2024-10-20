@@ -1,9 +1,10 @@
 import React, { useState, useRef } from 'react';
+import { fireDB, auth } from '../../firebase/FirebaseConfig';
+import { getFirestore, collection, addDoc, Timestamp } from 'firebase/firestore';
 
 const Ai2 = () => {
   const [imageSrc, setImageSrc] = useState(null);
   const [prediction, setPrediction] = useState(null);
-  const [remedy, setRemedy] = useState(null);
   const [isPredicting, setIsPredicting] = useState(false);
   const [useWebcam, setUseWebcam] = useState(false);
   const [selectedCrop, setSelectedCrop] = useState('');
@@ -17,7 +18,6 @@ const Ai2 = () => {
       reader.onload = (e) => {
         setImageSrc(e.target.result);
         setPrediction(null);
-        setRemedy(null);
         setUseWebcam(false);
       };
       reader.readAsDataURL(file);
@@ -44,13 +44,24 @@ const Ai2 = () => {
         console.error(result.error);
         setPrediction({ className: 'Error: ' + result.error, probability: 0 });
       } else {
+        const disease = result.prediction || "NOT ABLE TO DETECT DISEASE"; // Default value
+        const confidence = result.confidence !== undefined ? result.confidence : 0; // Default value
+
         setPrediction({
-          className: result.prediction,
-          probability: result.confidence,
+          className: disease,
+          probability: confidence,
         });
 
-        const remedyKey = result.prediction;
-        setRemedy(remedies[remedyKey]?.en || 'No remedy available.');
+        // Save prediction to Firestore in the predictions collection
+        const user = auth.currentUser; // Get the current logged-in user
+        if (user) {
+          await addDoc(collection(fireDB, 'predictions'), {
+            disease: disease,
+            confidence: confidence,
+            userId: user.uid, // Add the user UID from the current logged-in user
+            timestamp: Timestamp.fromDate(new Date()), // Save the current timestamp
+          });
+        }
       }
     } catch (error) {
       console.error('Error during prediction:', error);
@@ -63,7 +74,6 @@ const Ai2 = () => {
   const handleReset = () => {
     setImageSrc(null);
     setPrediction(null);
-    setRemedy(null);
     setUseWebcam(false);
     setSelectedCrop('');
   };
@@ -71,7 +81,6 @@ const Ai2 = () => {
   const startWebcam = () => {
     setUseWebcam(true);
     setPrediction(null);
-    setRemedy(null);
     navigator.mediaDevices
       .getUserMedia({ video: true })
       .then((stream) => {
@@ -201,33 +210,16 @@ const Ai2 = () => {
         {prediction && (
           <div className="mt-8">
             <h2 className="text-2xl font-bold text-green-700">Prediction</h2>
-            {prediction.className.startsWith('Error') ? (
-              <p className="text-lg text-red-700">{prediction.className}</p>
-            ) : (
+            {prediction.className && (
               <p className="text-lg text-gray-700">
-                {`Disease: ${prediction.className}, Confidence: ${(prediction.probability * 100).toFixed(2)}%`}
+                Disease: {prediction.className} (Confidence: {prediction.probability}%)
               </p>
-            )}
-            {remedy && (
-              <div className="mt-4">
-                <h3 className="text-xl font-semibold text-green-700">Remedy:</h3>
-                <p className="text-lg text-gray-700">{remedy}</p>
-              </div>
             )}
           </div>
         )}
       </div>
     </div>
   );
-};
-
-const remedies = {
-  'Corn Blight': {
-    en: 'Apply fungicides, rotate crops, and remove infected plants.',
-  },
-  'Potato Late Blight': {
-    en: 'Use resistant varieties, apply fungicides, and remove infected plants.',
-  },
 };
 
 export default Ai2;

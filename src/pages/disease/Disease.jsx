@@ -6,7 +6,8 @@ import Ai2 from '../../components/Ai2/Ai2'
 const Disease = () => {
   return (
     <Layout>
-        <Ai />
+        {/* <Ai /> */}
+        <Ai2 />
     </Layout>
   )
 }
