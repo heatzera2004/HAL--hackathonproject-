@@ -17,7 +17,7 @@
     "@radix-ui/react-navigation-menu": "^1.2.0",
     "@reduxjs/toolkit": "^2.2.7",
     "@teachablemachine/image": "^0.8.5",
-    "@tensorflow/tfjs": "^4.20.0",
+    "@tensorflow/tfjs": "^4.21.0",
     "bootstrap": "^5.3.3",
     "dotenv": "^16.4.5",
     "firebase": "^10.13.1",
